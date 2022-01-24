@@ -1,0 +1,337 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <title>ChebleS'</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+        <link rel="stylesheet" href="{% static 'css/menu.css' %}">
+        <style>
+            .home {
+                background-color: var(--bg-primary);
+                background-image: url('{{ home.image }}');
+                background-size: cover;
+                background-position: center;
+            }
+            .img1{
+                background-image: url('{{ box1.image }}');
+            }
+            .img2{
+                background-image: url('{{ box2.image }}');
+            }
+            .img3{
+                background-image: url('{{ box3.image }}');;
+            }
+            .about_left {
+                background-image: url('{{ about.image }}');;
+                background-size: cover;
+            }
+
+            /*  For responsive images as background */
+
+            #squares .bg{
+                background-position:center center;
+                background-repeat:no-repeat;
+                background-size:cover; /* you change this to "contain" if you don't want the images to be cropped */
+                color:#fff;
+                border: none;
+            }
+
+        </style>
+
+        <script src="https://kit.fontawesome.com/c778252024.js" crossorigin="anonymous"></script>
+        <script src="https://unpkg.com/scrollreveal"></script>
+        <script src="https://apps.elfsight.com/p/platform.js" defer></script>
+        <script>
+        </script>   
+    </head>
+    <body>
+        <div class="header">
+            <div id="banner">
+                {{ banner.content }}
+            </div>
+            <div class="header_content" id="topbar">
+                <div class="toggle">
+                    <a href="#" class="toggle-mnu hidden-lg"><span></span></a>
+                </div>
+                <div class="brand to_home">
+                    <img id="logo" src="{% static 'img/home_logo.svg' %}" />
+                </div>
+                <div class="menu">
+                    <nav class="stroke">
+                        <ul>
+                            <li><a class="to_home">Início</a></li>
+                            <li><a onclick="openAbout()">Sobre</a></li>
+                            <li><a class="to_curso">Curso</a></li>
+                            <li><a class="to_contact">Contato</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="cart">
+                    <a href="http://instagram.com/chebles">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="m-nav">
+            <div class="m-menu">
+                <div class="m-btn to_home">Início</div>
+                <div class="stroke2"></div>
+                <div class="m-btn to_about">Sobre nós</div>
+                <div class="stroke2"></div>
+                <div class="m-btn to_products">Produtos</div>
+                <div class="stroke2"></div>
+                <div class="m-btn to_curso">Curso</div>
+                <div class="stroke2"></div>
+                <div class="m-btn to_contact">Contato</div>
+                <div class="stroke2"></div>
+            </div>
+        </div>
+        <section class="home to_about" id="home">
+            <div class="home_content">
+                <h1>{{ home.title }}</h1>
+                <p>{{home.subtitle}}</p>
+                <div class="primary-btn">{{ home.button_text }}</div>
+            </div>
+            <div class="arrow scroll">></div>
+        </section>
+        <section class="about" id="about">
+            <div class="about_left">
+            </div>
+            <div class="about_right">
+                <div class="about_content">
+                    <h1>{{ about.title }}</h1>
+                        <p>{{ about.content }}</p>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="squares" id="squares">
+            <div class="square slide-right">
+                <div class="content"> 
+                    <div class="table">
+                        <div class="table-cell"> 
+                            <h1>{{ box1.title }}</h1>
+                            <p><br>{{ box1.content }} 
+                                <br><br><br><br><br>
+                                <button class="primary-btn disable">{{ box1.button_text }}</button>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="square bg img1 slide-right-delay">
+               <div class="content">
+                    <div class="table">
+                        <div class="table-cell"> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="square bg img2 slide-left-delay">
+                <div class="content">
+                </div>
+            </div>
+            <div class="square  slide-left">
+                <div class="content">
+                    <div class="table">
+                        <div class="table-cell"> 
+                            <h1>{{ box1.title }}</h1>
+                            <p><br>{{ box2.content }} 
+                                <br><br><br><br><br>
+                                <button class="primary-btn disable">{{ box2.button_text }}</button>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="square f slide-right">
+                <div class="content">
+                    <div class="table">
+                        <div class="table-cell">
+                            <h1>{{ box3.title }}</h1>
+                            <p><br>{{ box3.content }} 
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="square bg img3 f slide-right-delay">
+                <div class="content">
+                </div>
+            </div>
+        </section>
+
+
+        
+        <section class="section" id="section1">
+            <div class="sec_left">
+                <div class="sec_content slide-up slide-left">
+                    <h1>{{ course1.title }}</h1>
+                    <p>{{ course1.content }}
+                    <br><br><br>
+                    <span>
+                        {{ course1.highlight }}
+                    </span>
+                    <br><br><br><br>
+                    <button class="primary-btn">{{ course1.button_text }}</button>
+                </p>
+                </div>
+            </div>
+            <div class="sec_right" style="background-image: url('{% static "img/curso2.JPG" %}');">
+                <!-- <img class="chebles" src="{% static 'img/chebles.jpg' %}" /> -->
+            </div>
+        </section>
+        <section class="section" id="section2">
+            <div class="sec_left"  style="background-image: url('{% static "img/curso.JPG" %}');">
+        <!-- <img class="chebles" src="{% static 'img/chebles.jpg' %}" /> -->
+            </div>
+            <div class="sec_right">
+                <div class="sec_content slide-up slide-right">
+                    <h1>{{ course2.title }}</h1>
+                    <p>AGENDA<br><br>
+                    <span>
+                        {{ course2.schedule|escape }}
+                    </span>
+                    <br><br><br><br>
+                    <button class="primary-btn">{{ course2.button_text }}</button>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="instagram" id="instagram">
+            <h1>INSTAGRAM</h1>
+            <script src="https://apps.elfsight.com/p/platform.js" defer></script>
+            <div class="elfsight-app-970448b9-6154-4b68-aaa9-78f0c6c87b70"></div>
+        </section>
+
+        <section class="footer" id="footer">
+            <div class="footer-left">
+                <h3>{{ local1.local }} <img src="{% static 'img/map.svg' %}"></h3>
+                <span>{{ local1.address }}</span><span>{{ local1.contact }}</span>
+            </div>
+            <div class="square">
+                <img src="{% static 'img/logo2.svg' %}">
+            </div>
+            <div class="footer-right">
+                <h3><img src="{% static 'img/map.svg' %}">{{ local2.local }}</h3>
+                <span>{{ local2.address }}</span><span>{{ local2.contact }}</span>
+            </div>
+            <div id="range">
+                <span>CHEBLE’S    |    TODOS OS DIREITOS RESERVADOS  ©  2022    |    DESENVOLVIDO POR <span style="text-decoration: underline">NETUNO.DIGITAL</span></span>
+            </div>
+        </section>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+        <script type="text/javascript">
+
+            // Scroll das páginas
+            $(".to_home").click(function() {
+                $([document.documentElement, document.body]).animate({
+                    scrollTop: 0
+                }, 1500);
+            });
+            $(".to_curso").click(function() {
+                $([document.documentElement, document.body]).animate({
+                    scrollTop: $("#section1").offset().top -51
+                }, 1500);
+            });
+            $(".to_contact").click(function() {
+                $([document.documentElement, document.body]).animate({
+                    scrollTop: $("#footer").offset().top -51
+                }, 1500);
+            });
+            $(".scroll").click(function() {
+                $([document.documentElement, document.body]).animate({
+                    scrollTop: $("#squares").offset().top -51
+                }, 1500);
+            });
+            
+            $(".toggle-mnu, .m-btn").click(function() {
+                if ($(".m-nav").css('opacity') == '1') {
+                    $(".m-nav").animate({'opacity':0})
+                    setTimeout(function () {$(".m-nav").hide()}, 1000)
+                }
+                else {
+                    $(".m-nav").show()
+                    $(".m-nav").animate({'opacity':1})
+                }
+            $('.toggle-mnu').toggleClass("on");
+            $(".main-mnu").slideToggle();
+            return false;
+            });
+
+            
+            // Animação menu no scroll
+            window.onscroll = function() {scrollFunction()};
+            function scrollFunction() {
+            if (document.body.scrollTop > 120 || document.documentElement.scrollTop > 120) {
+                document.getElementById("banner").style.height = "0";
+                document.getElementById("banner").style.color = "transparent";
+                document.getElementById("topbar").style.height = "50px";
+                document.getElementById("logo").style.width = "115px";
+            } else {
+                document.getElementById("banner").style.height = "35px";
+                document.getElementById("banner").style.color = "#fff";
+                document.getElementById("topbar").style.height = "80px";
+                document.getElementById("logo").style.width = "155px";
+            }
+            }
+            
+
+            // Abrir sobre 
+            var state = 'close'
+            function openAbout() {
+                if (state == 'close') {
+                    document.getElementById("about").style.height = "100vh";
+                    state = 'open'
+                } else {
+                    document.getElementById("about").style.height = "0";
+                    state = 'close'
+                }
+            }
+            
+
+            // Animações da página
+            ScrollReveal({
+                reset: false, 
+                duration: 2500,
+                distance: '10%',
+                opacity: 0,
+                delay: 400,
+            });
+            var slideUp = {
+                origin: 'bottom',
+            };
+            ScrollReveal().reveal('.slide-up', slideUp);
+            var slideRight = {
+                origin: 'left',
+            };
+            ScrollReveal().reveal('.slide-right', slideRight);
+            var slideLeft = {
+                origin: 'right',
+            };
+            ScrollReveal().reveal('.slide-left', slideLeft);
+            var slideUp = {
+                delay: 1200,
+                origin: 'bottom',
+            };
+            ScrollReveal().reveal('.slide-up-delay', slideUp);
+            var slideRight = {
+                delay: 1200,
+                origin: 'left',
+            };
+            ScrollReveal().reveal('.slide-right-delay', slideRight);
+            var slideLeft = {
+                delay: 1200,
+                origin: 'right',
+            };
+            ScrollReveal().reveal('.slide-left-delay', slideLeft);
+        </script>
+    </body>
+</html>

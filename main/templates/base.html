@@ -1,0 +1,209 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <title>ChebleS'</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+        <link rel="stylesheet" href="{% static 'css/menu.css' %}">
+        <style>  
+            .img1{
+                background-image: url('{% static "img/bolo.JPG" %}') !important;
+            }
+            .img2{
+                background-image: url('{% static "img/cupcake.JPG" %}');
+            }
+            .img3{
+                background-image: url('');
+            }
+        </style>
+
+        <script src="https://kit.fontawesome.com/c778252024.js" crossorigin="anonymous"></script>
+        <script src="https://unpkg.com/scrollreveal"></script>
+        <script src="https://apps.elfsight.com/p/platform.js" defer></script>
+        <script>
+        </script>   
+    </head>
+    <body>
+        <div class="header">
+            <div id="banner">
+                BANNER PERSONALIZADO
+            </div>
+            <div class="header_content" id="topbar">
+                <div class="toggle">
+                    <a href="#" class="toggle-mnu hidden-lg"><span></span></a>
+                </div>
+                <div class="brand to_home">
+                    <img id="logo" src="{% static 'img/home_logo.svg' %}" />
+                </div>
+                <div class="menu">
+                    <nav class="stroke">
+                        <ul>
+                            <li><a class="to_home">Início</a></li>
+                            <li><a class="to_about" onclick="openAbout()">Sobre</a></li>
+                            <li><a class="to_curso">Curso</a></li>
+                            <li><a class="to_contact">Contato</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="cart">
+                    <a href="http://instagram.com/chebles">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="m-nav">
+            <div class="m-menu">
+                <div class="m-btn to_home">Início</div>
+                <div class="stroke2"></div>
+                <div class="m-btn to_about">Sobre nós</div>
+                <div class="stroke2"></div>
+                <div class="m-btn to_products">Produtos</div>
+                <div class="stroke2"></div>
+                <div class="m-btn to_curso">Curso</div>
+                <div class="stroke2"></div>
+                <div class="m-btn to_contact">Contato</div>
+                <div class="stroke2"></div>
+            </div>
+        </div>
+
+        <section class="about" id="about">
+            <div class="about_left slide-right">
+                <img class="chebles" src="{% static 'img/chebles.jpg' %}" />
+            </div>
+            <div class="about_right">
+                <div class="about_content slide-up">
+                    <h1>FERNANDA E RENATA</h1>
+                    <p>Somos Fernanda e Renata Cheble. Irmãs, gêmeas, fundadoras da ChebleS'.
+                        Criamos a ChebleS' com o objetivo de produzir bolos que tínhamos dificuldade de encontrar no Rio de Janeiro e adorávamos comer em nossas viagens.<br> <br>
+                        Por diversas ocasiões encomendamos bolos que nos frustraram. Desde então começamos a fazer nossos próprias produções, presentear amigos e familiares com o que podíamos oferecer de melhor, assim de forma inesperada transformamos nossa paixão em um negócio super lucrativo</p>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="instagram" id="instagram">
+            <h1>INSTAGRAM</h1>
+            <script src="https://apps.elfsight.com/p/platform.js" defer></script>
+            <div class="elfsight-app-970448b9-6154-4b68-aaa9-78f0c6c87b70"></div>
+        </section>
+
+        <section class="footer" id="footer">
+            <div class="footer-left">
+                <h3>RIO DE JANEIRO <img src="{% static 'img/map.svg' %}"></h3>
+                <span>21 98531-8274</span>
+            </div>
+            <div class="square">
+                <img src="{% static 'img/logo2.svg' %}">
+            </div>
+            <div class="footer-right">
+                <h3><img src="{% static 'img/map.svg' %}"> ORLANDO</h3>
+                <span>Endereço</span><span>321 424-8201</span>
+            </div>
+            <div id="range">
+                <span>CHEBLE’S    |    TODOS OS DIREITOS RESERVADOS  ©  2022    |    DESENVOLVIDO POR <span style="text-decoration: underline">NETUNO.DIGITAL</span></span>
+            </div>
+        </section>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+        <script type="text/javascript">
+
+            // Scroll das páginas
+            $(".to_home").click(function() {
+                $([document.documentElement, document.body]).animate({
+                    scrollTop: 0
+                }, 1500);
+            });
+            $(".to_about").click(function() {
+                $([document.documentElement, document.body]).animate({
+                    scrollTop: $("#about").offset().top -72
+                }, 1500);
+            });
+            $(".to_products").click(function() {
+                $([document.documentElement, document.body]).animate({
+                    scrollTop: $("#products").offset().top -72
+                }, 1500);
+            });
+            $(".to_curso").click(function() {
+                $([document.documentElement, document.body]).animate({
+                    scrollTop: $("#curso").offset().top -72
+                }, 1500);
+            });
+            $(".to_contact").click(function() {
+                $([document.documentElement, document.body]).animate({
+                    scrollTop: $("#contact").offset().top -72
+                }, 1500);
+            });
+            
+            $(".toggle-mnu, .m-btn").click(function() {
+                if ($(".m-nav").css('opacity') == '1') {
+                    $(".m-nav").animate({'opacity':0})
+                    setTimeout(function () {$(".m-nav").hide()}, 1000)
+                }
+                else {
+                    $(".m-nav").show()
+                    $(".m-nav").animate({'opacity':1})
+                }
+            $('.toggle-mnu').toggleClass("on");
+            $(".main-mnu").slideToggle();
+            return false;
+            });
+
+            
+            // Animação menu no scroll
+            window.onscroll = function() {scrollFunction()};
+            function scrollFunction() {
+            if (document.body.scrollTop > 120 || document.documentElement.scrollTop > 120) {
+                document.getElementById("banner").style.height = "0";
+                document.getElementById("banner").style.color = "transparent";
+                document.getElementById("topbar").style.height = "50px";
+                document.getElementById("logo").style.width = "115px";
+            } else {
+                document.getElementById("banner").style.height = "35px";
+                document.getElementById("banner").style.color = "#fff";
+                document.getElementById("topbar").style.height = "80px";
+                document.getElementById("logo").style.width = "155px";
+            }
+            }
+
+            // Animações da página
+            ScrollReveal({
+                reset: false, 
+                duration: 2500,
+                distance: '10%',
+                opacity: 0,
+                delay: 400,
+            });
+            var slideUp = {
+                origin: 'bottom',
+            };
+            ScrollReveal().reveal('.slide-up', slideUp);
+            var slideRight = {
+                origin: 'left',
+            };
+            ScrollReveal().reveal('.slide-right', slideRight);
+            var slideLeft = {
+                origin: 'right',
+            };
+            ScrollReveal().reveal('.slide-left', slideLeft);
+            var slideUp = {
+                delay: 800,
+                origin: 'bottom',
+            };
+            ScrollReveal().reveal('.slide-up-delay', slideUp);
+            var slideRight = {
+                delay: 800,
+                origin: 'left',
+            };
+            ScrollReveal().reveal('.slide-right-delay', slideRight);
+            var slideLeft = {
+                delay: 800,
+                origin: 'right',
+            };
+            ScrollReveal().reveal('.slide-left-delay', slideLeft);
+        </script>
+    </body>
+</html>
